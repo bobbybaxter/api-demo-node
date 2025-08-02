@@ -1,0 +1,46 @@
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  test: {
+    clearMocks: true,
+    coverage: {
+      exclude: [
+        '**/bin/**',
+        '**/build/**',
+        '**/cache/**',
+        '**/coverage/**',
+        '**/dist/**',
+        '**/logs/**',
+        '**/public/**',
+        '**/node_modules/**',
+        '**/temp/**',
+        '**/tests/**',
+        '**/tmp/**',
+        '**/*.config.**',
+        '**/*.schema.**',
+        '**/*.spec.**',
+      ],
+      extension: ['js', 'jsx', 'ts', 'tsx'],
+      provider: 'v8',
+      reporter: ['lcov'],
+      reportOnFailure: true,
+      reportsDirectory: 'coverage',
+    },
+    environment: 'node',
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/build/**',
+      '**/coverage/**',
+      '**/logs/**',
+      '**/public/**',
+      '**/temp/**',
+      '**/tmp/**',
+    ],
+    globals: true,
+    cache: false,
+    reporters: ['verbose'],
+    root: '.',
+    setupFiles: 'src/tests/setup/vitest.setup.ts',
+  },
+});
