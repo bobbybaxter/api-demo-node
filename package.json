@@ -9,7 +9,11 @@
     "start:js": "node ./bin/www",
     "test": "vitest run --coverage",
     "test:watch": "vitest --watch",
-    "coverage": "open \"file://$PWD/coverage/lcov-report/index.html\""
+    "coverage": "open \"file://$PWD/coverage/lcov-report/index.html\"",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "setup": "cp .env.example .env"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
