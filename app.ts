@@ -1,8 +1,8 @@
 import cookieParser from 'cookie-parser';
 import express, { NextFunction, Request, Response } from 'express';
 import createError from 'http-errors';
-import logger from 'morgan';
 import path from 'path';
+import { logger } from './src/middleware/logger';
 import indexRouter from './src/routes/index';
 
 const app = express();
@@ -11,7 +11,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(logger('dev'));
+app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
